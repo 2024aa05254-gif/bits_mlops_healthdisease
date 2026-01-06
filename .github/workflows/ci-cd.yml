@@ -1,0 +1,53 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout repo
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Setup Python
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    # Install dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest flake8
+
+    # Linting
+    - name: Lint with flake8
+      run: |
+        flake8 src tests
+
+    # Run unit tests
+    - name: Run tests
+      run: |
+        pytest tests/ --maxfail=1 --disable-warnings -q
+
+    # Train model (optional step in CI)
+    - name: Train model
+      run: |
+        python src/train.py
+
+    # Save artifacts (model)
+    - name: Upload model artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: trained-model
+        path: models/
