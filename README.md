@@ -1,9 +1,13 @@
 # MLOps Assignment Report
 # GROUP 28 
 APARAJEETA BEHERA :  2024aa05254@wilp.bits-pilani.ac.in : 100% 
+
 AYAN DEB . : 2024aa05430@wilp.bits-pilani.ac.in : 100% 
+
 HARISH N . : 2024aa05528@wilp.bits-pilani.ac.in : 100 % 
+
 K. P. SHINE . : 2024aa05572@wilp.bits-pilani.ac.in : 100%
+
 SUNIL KUMAR PANDEY . : 2024aa05222@wilp.bits-pilani.ac.in : 100% 
 
 
@@ -48,7 +52,7 @@ SUNIL KUMAR PANDEY . : 2024aa05222@wilp.bits-pilani.ac.in : 100%
 ### 7. Production Deployment ✓ (Local)
 - API deployed locally on port 5000
 - Endpoints tested and working:
-  - `GET /health` - Returns API status
+  - `GET /` - Returns API status
   - `POST /predict` - Makes predictions with confidence scores
 
 ### 8. Monitoring & Logging ✓
@@ -57,13 +61,13 @@ SUNIL KUMAR PANDEY . : 2024aa05222@wilp.bits-pilani.ac.in : 100%
 - Logs saved to `logs/api.log`
 
 ### 9. Repository Structure ✓
-heart-disease-mlops/
+bits_mlops_healthdisease/
 ├── data/ # Dataset files
+│── api/ # Flask API
 ├── notebooks/ # EDA notebooks
 ├── src/ # Source code
 │ ├── data_preprocessing/ # Data cleaning
 │ ├── model_training/ # Model training
-│ ├── api/ # Flask API
 │ ├── experiment_tracking/ # MLflow
 │ └── monitoring/ # Monitoring
 ├── tests/ # Unit tests
@@ -85,7 +89,6 @@ Prediction Test: {"prediction": 0, "probability": 0.150, "confidence": "high", "
 - EDA Visualizations: `reports/eda_visualizations.png`
 - Model Comparison: `reports/model_comparison.png`
 - MLflow UI: See attached screenshots
-
 - API Response: See attached screenshots
 
 ### Challenges & Solutions
