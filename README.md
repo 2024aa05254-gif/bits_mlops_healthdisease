@@ -110,7 +110,7 @@ conda env create -f <environment.yml>
 conda activate <heart_disease_ml>
 
 or Usig requirements.txt:
-```bash
+bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
