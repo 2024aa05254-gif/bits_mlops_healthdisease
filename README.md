@@ -87,15 +87,54 @@ Prediction Test: {"prediction": 0, "probability": 0.150, "confidence": "high", "
 
 ### Screenshots
 - EDA Visualizations: `reports/eda_visualizations.png`
-- <img width="3553" height="2965" alt="eda_visualizations" src="https://github.com/user-attachments/assets/07de7ac0-e7d7-407d-8c7f-2b04d5431c71" />
+ <img width="3553" height="2965" alt="eda_visualizations" src="https://github.com/user-attachments/assets/07de7ac0-e7d7-407d-8c7f-2b04d5431c71" />
 
 - Model Comparison: `reports/model_comparison.png`
-- <img width="3474" height="1466" alt="model_comparison" src="https://github.com/user-attachments/assets/7d1c9ecb-f326-4210-b4fd-d4095691d2ca" />
+ <img width="3474" height="1466" alt="model_comparison" src="https://github.com/user-attachments/assets/7d1c9ecb-f326-4210-b4fd-d4095691d2ca" />
+
+- Train & Evaluate
+ <img width="540" height="174" alt="image" src="https://github.com/user-attachments/assets/e0fae5a6-0192-42dc-ae64-9fdfffcd7557" />
+ <img width="542" height="80" alt="image" src="https://github.com/user-attachments/assets/c4e42c88-4907-45ff-b167-a8a8b5e21874" />
 
 - MLflow UI: See attached screenshots
-- <img width="936" height="377" alt="image" src="https://github.com/user-attachments/assets/49d75581-fa01-4969-b9a9-c5acecf9d392" />
+ <img width="936" height="377" alt="image" src="https://github.com/user-attachments/assets/49d75581-fa01-4969-b9a9-c5acecf9d392" />
 
 - API Response: See attached screenshots
+- <img width="853" height="194" alt="image" src="https://github.com/user-attachments/assets/a2e853f1-1f0d-4ca6-a472-8f1df2050eeb" />
+
+### Setup Python environment : Instructions
+**1.Setup Python environment**
+
+Using Conda:
+conda env create -f <environment.yml>
+conda activate <heart_disease_ml>
+
+or Usig requirements.txt:
+bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+pip install -r requirements.txt
+
+**MLflow Setup for Experiment Tracking**
+1. Install MLflow (already in requirements.txt or environment.yml):  MLflow Setup for Experiment Tracking
+pip install mlflow
+
+2. Start MLflow server locally:
+mlflow ui
+Default UI URL: http://127.0.0.1:5000
+
+**Running the pipeline**
+1. rain the model and log experiments:
+python src/train.py
+
+2. Evaluate model:
+python src/evaluate.py
+
+3. Launch MLflow UI to see experiments, metrics, and logged models:
+mlflow ui
+Default UI URL: http://127.0.0.1:5000
+
 
 ### Challenges & Solutions
 1. **Docker Virtualization Issue**: Documented as attempted but requires BIOS settings change
