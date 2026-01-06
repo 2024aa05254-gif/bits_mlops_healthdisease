@@ -2,6 +2,7 @@ import os
 import joblib
 import mlflow
 import mlflow.sklearn
+
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score
 
@@ -31,7 +32,7 @@ def main():
     # Set MLflow experiment
     mlflow.set_experiment("Heart Disease Classification")
 
-    # --- Logistic Regression ---
+    # ---------------- Logistic Regression ----------------
     lr_pipeline = get_pipeline()
     with mlflow.start_run(run_name="LogisticRegression_Pipeline"):
         lr_pipeline.fit(X_train, y_train)
@@ -45,14 +46,11 @@ def main():
             model_name="logistic_model"
         )
 
-        joblib.dump(lr_pipeline, os.path.join(MODEL_DIR, "logistic_model.pkl"))
-        print(
-            f"Logistic Regression model saved at {
-                os.path.join(
-                    MODEL_DIR,
-                    'logistic_model.pkl')}")
+        lr_model_path = os.path.join(MODEL_DIR, "logistic_model.pkl")
+        joblib.dump(lr_pipeline, lr_model_path)
+        print(f"Logistic Regression model saved at {lr_model_path}")
 
-    # --- Random Forest ---
+    # ---------------- Random Forest ----------------
     rf_pipeline = get_rf_pipeline()
     with mlflow.start_run(run_name="RandomForest_Pipeline"):
         rf_pipeline.fit(X_train, y_train)
@@ -66,12 +64,9 @@ def main():
             model_name="rf_model"
         )
 
-        joblib.dump(rf_pipeline, os.path.join(MODEL_DIR, "rf_model.pkl"))
-        print(
-            f"Random Forest model saved at {
-                os.path.join(
-                    MODEL_DIR,
-                    'rf_model.pkl')}")
+        rf_model_path = os.path.join(MODEL_DIR, "rf_model.pkl")
+        joblib.dump(rf_pipeline, rf_model_path)
+        print(f"Random Forest model saved at {rf_model_path}")
 
 
 if __name__ == "__main__":
