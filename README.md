@@ -89,6 +89,8 @@ Prediction Test: {"prediction": 0, "probability": 0.150, "confidence": "high", "
 - EDA Visualizations: `reports/eda_visualizations.png`
 - Model Comparison: `reports/model_comparison.png`
 - MLflow UI: See attached screenshots
+- <img width="936" height="377" alt="image" src="https://github.com/user-attachments/assets/49d75581-fa01-4969-b9a9-c5acecf9d392" />
+
 - API Response: See attached screenshots
 
 ### Challenges & Solutions
