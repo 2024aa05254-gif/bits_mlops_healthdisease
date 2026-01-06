@@ -1,0 +1,22 @@
+artifact_path: /home/cloud/mlops-asgmt1-grp28/heart-disease-prediction/bits_mlops_healthdisease/mlruns/1/models/m-b5f53e9ff0dd4c4aa3c8a52d85efe676/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.19
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.8.1
+model_id: m-b5f53e9ff0dd4c4aa3c8a52d85efe676
+model_size_bytes: 1687
+model_uuid: m-b5f53e9ff0dd4c4aa3c8a52d85efe676
+prompts: null
+run_id: 57b1051531d24ae2946578d042178e85
+utc_time_created: '2026-01-06 15:39:49.817589'
