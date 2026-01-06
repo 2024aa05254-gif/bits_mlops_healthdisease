@@ -9,11 +9,11 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-train:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repo
+      # 1️⃣ Checkout repository
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -21,7 +21,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       # 3️⃣ Install dependencies
       - name: Install dependencies
@@ -34,15 +34,25 @@ jobs:
       - name: Lint with flake8
         run: flake8 src tests || true
 
-      # 5️⃣ Run unit tests
-      - name: Run tests
-        run: pytest tests/ --maxfail=1 --disable-warnings -q
+      # 5️⃣ Run unit tests (FIXED: PYTHONPATH)
+      - name: Run unit tests
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          pytest tests/ --maxfail=1 --disable-warnings -q
 
       # 6️⃣ Train the model
       - name: Train model
-        run: python src/train.py
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          python src/train.py
 
-      # 7️⃣ Upload trained model artifacts
+      # 7️⃣ Evaluate the model (optional but recommended)
+      - name: Evaluate model
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          python src/evaluate.py
+
+      # 8️⃣ Upload trained model artifacts
       - name: Upload trained model
         uses: actions/upload-artifact@v4
         with:
