@@ -46,7 +46,11 @@ def main():
         )
 
         joblib.dump(lr_pipeline, os.path.join(MODEL_DIR, "logistic_model.pkl"))
-        print(f"Logistic Regression model saved at {os.path.join(MODEL_DIR, 'logistic_model.pkl')}")
+        print(
+            f"Logistic Regression model saved at {
+                os.path.join(
+                    MODEL_DIR,
+                    'logistic_model.pkl')}")
 
     # --- Random Forest ---
     rf_pipeline = get_rf_pipeline()
@@ -63,7 +67,11 @@ def main():
         )
 
         joblib.dump(rf_pipeline, os.path.join(MODEL_DIR, "rf_model.pkl"))
-        print(f"Random Forest model saved at {os.path.join(MODEL_DIR, 'rf_model.pkl')}")
+        print(
+            f"Random Forest model saved at {
+                os.path.join(
+                    MODEL_DIR,
+                    'rf_model.pkl')}")
 
 
 if __name__ == "__main__":

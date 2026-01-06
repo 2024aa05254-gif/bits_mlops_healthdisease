@@ -6,8 +6,8 @@ url = "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/p
 
 # Column names
 columns = [
-    "age","sex","cp","trestbps","chol","fbs","restecg",
-    "thalach","exang","oldpeak","slope","ca","thal","target"
+    "age", "sex", "cp", "trestbps", "chol", "fbs", "restecg",
+    "thalach", "exang", "oldpeak", "slope", "ca", "thal", "target"
 ]
 
 # Read dataset

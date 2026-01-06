@@ -4,6 +4,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
+
 def get_pipeline():
     """Logistic Regression pipeline"""
     pipeline = Pipeline([
@@ -12,6 +13,7 @@ def get_pipeline():
         ("classifier", LogisticRegression(max_iter=1000))
     ])
     return pipeline
+
 
 def get_rf_pipeline():
     """Random Forest pipeline"""

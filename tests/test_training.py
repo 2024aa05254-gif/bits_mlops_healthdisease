@@ -4,6 +4,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from src.preprocess import get_preprocessing_pipeline
 
+
 def test_model_pipeline_runs():
     numeric_features = ['age', 'trestbps']
     categorical_features = ['sex', 'cp']

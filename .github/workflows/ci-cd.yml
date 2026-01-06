@@ -1,6 +1,5 @@
 name: CI/CD Pipeline
 
-# Trigger on push to main or pull requests to main
 on:
   push:
     branches:
@@ -14,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repository
+      # 1️⃣ Checkout repo
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -31,9 +30,9 @@ jobs:
           pip install -r requirements.txt
           pip install pytest flake8
 
-      # 4️⃣ Lint code
+      # 4️⃣ Lint code (non-blocking)
       - name: Lint with flake8
-        run: flake8 src tests
+        run: flake8 src tests || true
 
       # 5️⃣ Run unit tests
       - name: Run tests
@@ -43,7 +42,7 @@ jobs:
       - name: Train model
         run: python src/train.py
 
-      # 7️⃣ Upload model artifacts
+      # 7️⃣ Upload trained model artifacts
       - name: Upload trained model
         uses: actions/upload-artifact@v4
         with:

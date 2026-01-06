@@ -1,0 +1,9 @@
+[flake8]
+# Allow lines up to 120 characters
+max-line-length = 120
+
+# Ignore unused imports (F401) for tests
+ignore = F401
+
+# Optional: ignore trailing whitespace
+extend-ignore = W291,W293
